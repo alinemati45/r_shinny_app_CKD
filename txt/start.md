@@ -3,7 +3,7 @@ We use passenger's sex, class, and age to estimate the effect on the survival of
 
 <center>
 
-<img src="https://i.pinimg.com/originals/b2/b9/03/b2b9037803d29b5888b4aa51f6c7b3b9.jpg" width="85%"/>
+<img src="https://github.com/alinemati45/r_shinny_app_CKD_potassium/blob/main/man/images/LogitApp.png?raw=true" width="100%"/>
 
 </center>
 

@@ -41,7 +41,7 @@ shinyUI(fixedPage(
                                                     icon = icon("github"))),
                                    div(style="display: inline-block; width: 150px;",
                                        actionButton("download", "Download", 
-                                                    onclick ="window.open('http://edgar-treischl.de/wp-content/uploads/2021/05/report.pdf')", 
+                                                    onclick ="window.open('https://raw.githubusercontent.com/alinemati45/r_shinny_app_CKD_potassium/main/report.pdf')", 
                                                     icon = icon("file")))
                             ),
                             column(width = 6,
