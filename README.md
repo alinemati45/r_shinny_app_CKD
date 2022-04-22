@@ -1,4 +1,4 @@
-# Titanic App
+# High Blood Pressure can affect CKD?
 
 This is the repository for a R shiny app that introduces the basics of the main interpretation steps of a logistic regression analysis. You can inspect the app on my [personal website](http://edgar-treischl.de/projects) or run the app via:
 
