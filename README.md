@@ -2,7 +2,7 @@
 
 ## Email : Nemati@UWM.EDU 
 
-This is the repository for a R shiny app that introduces the basics of the main interpretation steps of a logistic regression analysis. You can inspect the app on my [personal website](http://edgar-treischl.de/projects) or run the app via:
+This is the repository for a R shiny app that introduces the basics of the main interpretation steps of a logistic regression analysis. You can inspect the app on my [personal Project](https://alinemati.shinyapps.io/CKD-App-main/) or run the app via:
 
 
  
