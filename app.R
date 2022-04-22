@@ -307,8 +307,8 @@ df_pred <- df_pred %>%
   mutate(True = paste0(True, "\n", "n=", num))
 
 
-
-
+cmMatrix$byClass[2]
+cmMatrix$byClass[1]
 pred_plot <- ggplot(df_pred) + 
   geom_mosaic(aes(x = product(True), fill = Predicted))+
   scale_fill_manual(values=c("#E69F00","#009E73"))+

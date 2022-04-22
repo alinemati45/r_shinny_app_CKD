@@ -360,19 +360,19 @@ shinyServer(function(input, output) {
     
     
     output$odds <- renderText({ 
-        "First's Class odds: 104/84: 1.23809524 \nSecond's Class odds: 52/66: 0.787878788 \nThird's Class odds: 87/6: 14.5"
+        "First's Class odds: 98/91: 1.07692308 \nSecond's Class odds: 52/66: 0.787878788 \nThird's Class odds: 81/12: 6.75"
         
     })
     
     
     output$orperHand <- renderPrint({
-        Oddfirstclass <- 103/86
+        Oddfirstclass <- 98/91
         Oddfirstclass
         
-        Oddsecondclass <- 51/68
+        Oddsecondclass <- 52/66
         Oddsecondclass
         
-        Oddthierdclass <- 85/6
+        Oddthierdclass <- 81/12
         Oddthierdclass
         
     })

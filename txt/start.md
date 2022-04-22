@@ -3,13 +3,11 @@
 
 <img src="https://urbanmilwaukee.com/wp-content/uploads/2020/03/UWM-logo.jpg" width="25%"/>
  <br>
-Instructor: DR. Kourosh Ravvaz
- <br>
-By : Ali Nemati
- <br>
-Spring 2022
- <br>
-UWM
+- Instructor: DR. Kourosh Ravvaz
+- By : Ali Nemati
+- UWM
+- Spring 2022
+
 </left>
 
 

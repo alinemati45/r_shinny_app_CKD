@@ -172,7 +172,7 @@ shinyUI(fixedPage(
                         )
                )
                ,
-               tabPanel("07 Performance  2", icon = icon("hat-wizard"),
+               tabPanel("07 Reference and GGPAIRS Plot ", icon = icon("hat-wizard"),
                         fixedRow(
                           column(width = 1,
                                  includeMarkdown("./txt/performance2.md"),
