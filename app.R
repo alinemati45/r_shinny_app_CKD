@@ -345,4 +345,5 @@ roc_curve <-  p+
   theme(legend.position = "none")+
   ggtitle("")
 
-
+library(GGally)
+gg_p<-ggpairs(train_df,  title="correlogram with ggpairs()"  )

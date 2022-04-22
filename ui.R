@@ -171,5 +171,18 @@ shinyUI(fixedPage(
                             )
                         )
                )
+               ,
+               tabPanel("07 Performance  2", icon = icon("hat-wizard"),
+                        fixedRow(
+                          column(width = 1,
+                                 includeMarkdown("./txt/performance2.md"),
+                          ),
+                          column(width = 12,
+
+                                 h4("GGPAIRS Plot:"),
+                                 plotOutput("gg_p")
+                          )
+                        )
+               )
     )
 ))

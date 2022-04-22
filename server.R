@@ -30,8 +30,7 @@ library(tidyverse)
 train_df <- read.csv(file = './data_update.csv')
 typeof(train_df)
 
-library(GGally)
-ggpairs(data)
+
 train_df$class <- factor(train_df$class, 
                             levels = c(0, 1),
                             labels = c("notckd", "ckd")) 
@@ -448,6 +447,12 @@ shinyServer(function(input, output) {
         
     })
     
+    # GGP#####
+    output$gg_p <- renderPlot({
+      thematic_off()
+      gg_p
+      
+    })
     
 
 })

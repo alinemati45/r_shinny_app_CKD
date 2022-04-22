@@ -11,3 +11,7 @@ A common way to combine both indicators are ROC curves. As the plot below illust
 
 
 Sensitivity and specificity are not the only measures of performance, but in terms of interpretation, we should remember the further the ROC curve is away from the diagonal (and closer to the black line), the greater the explanatory power of the model.
+
+
+
+
