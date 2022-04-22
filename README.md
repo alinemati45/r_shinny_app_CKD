@@ -6,8 +6,9 @@ You can inspect the app on my [project link](https://alinemati.shinyapps.io/CKD-
 
 
  
- The app uses the classic example: Who survived the titanic? The app shows the main differences between linear and non-linear regression analysis and user explore how passenger's sex, class, and age effects who survived the Titanic.
- 
+ This app illustrates some fundamental concepts in logistic regression.
+
+We use Pus Cell, Age, and Blood Pressure to estimate the effect on the Chrinic Kidney diease database.
  <center>
 <img src="man/images/LogitApp.png" alt="Logistic regression app" width="75%"/>
 </center>
