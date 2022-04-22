@@ -1,0 +1,13 @@
+name: CKD-Application-main
+title: CKD-Application-main
+username:
+account: alinemati
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6151210
+bundleId: 5827056
+url: https://alinemati.shinyapps.io/CKD-Application-main/
+when: 1650646518.48685
+lastSyncTime: 1650646518.48685
+asMultiple: FALSE
+asStatic: FALSE

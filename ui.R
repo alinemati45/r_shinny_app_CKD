@@ -1,19 +1,19 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
+
 #
 #    http://shiny.rstudio.com/
 #
 
-work_dir <- "C:/Users/nemat/OneDrive - mcw.edu/UWM/Spring/PH 718 R/HW/CKD-App-main"
-setwd(work_dir)
+
 library(shiny)
 library(waiter)
 library(bslib)
 
+library(markdown)
 
+#https://alinemati.shinyapps.io/CKD-App-main
+
+#install.packages("rsconnect")
+library(rsconnect)
 
 
 # Define UI for application that draws a histogram

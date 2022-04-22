@@ -17,8 +17,3 @@ The data for the scatter plot was simulated, that is reason why it looks nice an
  but I hope you get a first impression about the difference between linear and logistic regression.
  
  
- <right>
-
-<img src="https://urbanmilwaukee.com/wp-content/uploads/2020/03/UWM-logo.jpg" width="60%"/>
-
-</right>

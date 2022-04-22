@@ -1,11 +1,5 @@
 
-
-#
-# This is the server logic of a Shiny web application. You can run the
-# application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
+# https://alinemati.shinyapps.io/CKD-App-main
 #    http://shiny.rstudio.com/
 #
 library(shiny)
@@ -22,21 +16,22 @@ library(ggmosaic)
 library(precrec)
 library(waiter)
 library(cowplot)
+library(markdown)
+#install.packages("rsconnect")
+library(rsconnect)
 
 
-
-
-
-source("utils.R")
+source("app.R" ,local=T)
 
 
 library(tidyverse)
 #Data Prep#############
 #train_df<- titanic::titanic_train
-train_df <- read.csv(file = 'data_update.csv')
+train_df <- read.csv(file = './data_update.csv')
 typeof(train_df)
 
-
+library(GGally)
+ggpairs(data)
 train_df$class <- factor(train_df$class, 
                             levels = c(0, 1),
                             labels = c("notckd", "ckd")) 
@@ -72,7 +67,7 @@ shinyServer(function(input, output) {
         ggplot(train_df, aes(x= class)) + 
             geom_bar(aes(y = (..count..)/sum(..count..)), fill=c("lightgreen") , width = 0.35)+
         theme_minimal_grid() +
-            ylab("Percent")+ theme(  panel.border = element_rect(color = "steelblue", size = 2),
+            ylab("Percent per population")+ theme(  panel.border = element_rect(color = c("steelblue" , "blue"), size = 2),
           plot.title = element_text(size = 18),
           axis.title.x = element_text(size = 20),
           axis.title.y = element_text(size = 20),
