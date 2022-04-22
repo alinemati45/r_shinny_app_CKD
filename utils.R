@@ -1,3 +1,6 @@
+
+
+
 library(ggplot2)
 library(titanic)
 library(ggbeeswarm)
@@ -10,28 +13,44 @@ library(caret)
 library(ggmosaic)
 library(precrec)
 
+
+
+
 #Data Prep#############
-train_df<- titanic::titanic_train
+#train_df<- titanic::titanic_train
+train_df <- read.csv(file = 'data_update.csv')
 
-train_df$Survived <- factor(train_df$Survived, 
+
+train_df$class <- factor(train_df$class, 
                             levels = c(0, 1),
-                            labels = c("Not survived", "Survived")) 
+                            labels = c("notckd", "ckd")) 
 
-train_df$Pclass <- factor(train_df$Pclass, 
-                          levels = c(1, 2 , 3),
-                          labels = c("First class", "Second class", "Third class")) 
+# train_df$blood_pressure <- factor(train_df$blood_pressure, 
+#                           levels = c(1, 2 , 3),
+#                           labels = c("First class", "Second class", "Third class")) 
 
-glm_fit <- glm(Survived ~ Sex + Age + Pclass , family = binomial(link = 'logit'), data = train_df)
+
+
+train_df$blood_pressure <- factor(train_df$blood_pressure, 
+                                  levels = c(1, 2 , 3 ),
+                                  labels = c("80 or down", "90" , "100 or above")) 
+train_df$Age <- as.double(train_df$Age) 
+typeof(train_df$Age)
+
+
+
+
+glm_fit <- glm(class ~ Pus_Cell + Age + blood_pressure , family = binomial(link = 'logit'), data = train_df)
 
 
 
 
 #Titanic data prep for alluvial#######
-tita<- titanic::titanic_train
+tita<- read.csv(file = 'data_update.csv')
 
 
 tita<- tita %>% 
-  select(Age, Sex, Survived, Pclass)%>% 
+  select(Age, Pus_Cell, class, blood_pressure)%>% 
   mutate(
     Adults = case_when(
       Age >= 0 & Age < 14    ~ "Kids",
@@ -42,27 +61,27 @@ tita<- tita %>%
 
 
 tita<- tita %>% 
-  group_by(Sex, Survived, Pclass, Adults) %>% 
+  group_by(Pus_Cell, class, blood_pressure, Adults) %>% 
   drop_na() %>% 
-  count(Sex) 
+  count(Pus_Cell) 
 
 
-tita$Survived <- factor(tita$Survived, 
+tita$class <- factor(tita$class, 
                         levels = c(0, 1),
-                        labels = c("Not survived", "Survived")) 
+                        labels = c("notckd", "ckd")) 
 
-tita$Pclass <- factor(tita$Pclass, 
-                      levels = c(1, 2 , 3),
-                      labels = c("1. Class", "2. Class", "3. class"))
+tita$blood_pressure <- factor(tita$blood_pressure, 
+                      levels = c(1, 2 , 3 , 4),
+                      labels = c("1. Class", "2. Class", "3. class" , "4. class"))
 
 
 #plots
 all_adults <- ggplot(data = tita,
-       aes(axis1 = Sex, axis2 = Adults,
+       aes(axis1 = Pus_Cell, axis2 = Adults,
            y = n)) +
-  scale_x_discrete(limits = c("Sex", "Adults", "Class"), expand = c(.2, .05)) +
+  scale_x_discrete(limits = c("Pus_Cell", "Adults", "Class"), expand = c(.2, .05)) +
   xlab("Group") +
-  geom_alluvium(aes(fill = Survived), alpha = 0.75) +
+  geom_alluvium(aes(fill = class), alpha = 0.75) +
   geom_stratum() +
   geom_text(stat = "stratum", aes(label = after_stat(stratum)), size = rel(5)) +
   theme_minimal(base_size = 16)+
@@ -70,11 +89,11 @@ all_adults <- ggplot(data = tita,
   theme(legend.position="bottom")
 
 all_class <- ggplot(data = tita,
-       aes(axis1 = Sex, axis2 = Pclass,
+       aes(axis1 = Pus_Cell, axis2 = blood_pressure,
            y = n)) +
-  scale_x_discrete(limits = c("Sex", "Adults", "Class"), expand = c(.2, .05)) +
+  scale_x_discrete(limits = c("Pus_Cell", "Adults", "Class"), expand = c(.2, .05)) +
   xlab("Group") +
-  geom_alluvium(aes(fill = Survived),  alpha = 0.75) +
+  geom_alluvium(aes(fill = class),  alpha = 0.75) +
   geom_stratum() +
   geom_text(stat = "stratum", aes(label = after_stat(stratum)), size = rel(5)) +
   theme_minimal(base_size = 16)+
@@ -82,11 +101,11 @@ all_class <- ggplot(data = tita,
   theme(legend.position="bottom")
 
 all_overall <- ggplot(data = tita,
-       aes(axis1 = Sex, axis2 = Adults, axis3 = Pclass,
+       aes(axis1 = Pus_Cell, axis2 = Adults, axis3 = blood_pressure,
            y = n)) +
-  scale_x_discrete(limits = c("Sex", "Adults", "Class"), expand = c(.2, .05)) +
+  scale_x_discrete(limits = c("Pus_Cell", "Adults", "Class"), expand = c(.2, .05)) +
   xlab("Group") +
-  geom_alluvium(aes(fill = Survived),  alpha = 0.75) +
+  geom_alluvium(aes(fill = class),  alpha = 0.75) +
   geom_stratum() +
   geom_text(stat = "stratum", aes(label = after_stat(stratum)), size = rel(5)) +
   theme_minimal(base_size = 16)+
@@ -95,11 +114,11 @@ all_overall <- ggplot(data = tita,
 
 
 all_sex <- ggplot(data = tita,
-       aes(axis1 = Sex,
+       aes(axis1 = Pus_Cell,
            y = n)) +
-  scale_x_discrete(limits = c("Sex", "Adults", "Class"), expand = c(.2, .05)) +
+  scale_x_discrete(limits = c("Pus_Cell", "Adults", "Class"), expand = c(.2, .05)) +
   xlab("Group") +
-  geom_alluvium(aes(fill = Survived),  alpha = .75) +
+  geom_alluvium(aes(fill = class),  alpha = .75) +
   geom_stratum() +
   geom_text(stat = "stratum", aes(label = after_stat(stratum)), size = rel(5)) +
   theme_minimal(base_size = 16)+
@@ -124,13 +143,13 @@ centre(x, "trimmed")
 
 model_call <- function(type) {
   switch(type,
-         m1 = glm(Survived ~ Sex , family = binomial(link = 'logit'), data = train_df),
-         m2 = glm(Survived ~ Pclass , family = binomial(link = 'logit'), data = train_df),
-         m3 = glm(Survived ~ Age , family = binomial(link = 'logit'), data = train_df),
-         m4 = glm(Survived ~ Sex + Pclass , family = binomial(link = 'logit'), data = train_df),
-         m5 = glm(Survived ~ Sex + Pclass + Age, family = binomial(link = 'logit'), data = train_df),
-         m6 = glm(Survived ~ Sex + Age , family = binomial(link = 'logit'), data = train_df),
-         m7 = glm(Survived ~ Pclass + Age , family = binomial(link = 'logit'), data = train_df)
+         m1 = glm(class ~ Pus_Cell , family = binomial(link = 'logit'), data = train_df),
+         m2 = glm(class ~ blood_pressure , family = binomial(link = 'logit'), data = train_df),
+         m3 = glm(class ~ Age , family = binomial(link = 'logit'), data = train_df),
+         m4 = glm(class ~ Pus_Cell + blood_pressure , family = binomial(link = 'logit'), data = train_df),
+         m5 = glm(class ~ Pus_Cell + blood_pressure + Age, family = binomial(link = 'logit'), data = train_df),
+         m6 = glm(class ~ Pus_Cell + Age , family = binomial(link = 'logit'), data = train_df),
+         m7 = glm(class ~ blood_pressure + Age , family = binomial(link = 'logit'), data = train_df)
          )
 }
 
@@ -240,21 +259,33 @@ or7 <- tidy(model_call("m7"))%>%
 
 
 
+
+
+
+
+
 #Prediction plots: Sensitivity
-glm_fit <- glm(Survived ~ Sex + Age + as.numeric(Pclass) , family = binomial(link = 'logit'), data = train_df)
+glm_fit <- glm(class ~ Pus_Cell + Age + as.numeric(blood_pressure) , family = binomial(link = 'logit'), data = train_df)
 
 pred_surv <- (predict(glm_fit, train_df, type = 'response') > 0.5) * 1
 
-#diese Prognose speichern wir zusammen mit der PassengerID
-df_pred <- data.frame('PassengerId' = train_df$PassengerId, 'True' =  train_df$Survived, 
+#diese Prognose speichern wir zusammen mit der index
+
+df_pred <- data.frame('index' = train_df$index, 'True' =  train_df$class, 
                       'Predicted' = pred_surv) %>% drop_na()
+
+
 
 
 df_pred$Predicted <- factor(df_pred$Predicted, 
                             levels = c(0, 1),
-                            labels = c("Not survived", "Survived")) 
+                            labels = c("notckd", "ckd")) 
 
-cmMatrix<- confusionMatrix(df_pred$Predicted, df_pred$True,  positive = "Survived")
+
+levels(df_pred$True)
+levels(df_pred$Predicted)
+
+cmMatrix<- confusionMatrix(df_pred$Predicted, df_pred$True,  positive = "ckd")
 
 
 label_df <- df_pred %>% 
@@ -264,7 +295,7 @@ label_df <- df_pred %>%
 
 fcukit <- data.frame(
   x = c(0.32, 0.32, 0.82, 0.82),
-  y = c(0.1, 0.9, 0.1, 0.9),
+  y = c(0.9, 0.1, 0.9, 0.1),
   text = label_df$n,
   text2 = c("True negative", "False positive", "False negative", "True positive")
 )
@@ -277,30 +308,33 @@ df_pred <- df_pred %>%
   left_join(sample_size) %>%
   mutate(True = paste0(True, "\n", "n=", num))
 
+
+
+
 pred_plot <- ggplot(df_pred) + 
-  geom_mosaic(aes(x = product(True), fill = Predicted), alpha = 1)+
+  geom_mosaic(aes(x = product(True), fill = Predicted))+
   scale_fill_manual(values=c("#E69F00","#009E73"))+
   geom_label(data = fcukit, 
              aes(x = x, y = y, 
                  label = paste0(text2, ":", text)),
-             size = 5)+
+             size = 6)+
   ylab("Predicted")+
   xlab("Observed")+
   theme_minimal(base_size = 18)+
-  labs(caption = paste0("Sensitivity:", round(cmMatrix$byClass[1], 2),
-                        ", Specificity:", round(cmMatrix$byClass[2], 2)))+
+  labs(caption = paste0("Sensitivity:", round(cmMatrix$byClass[2], 2),
+                        ", Specificity:", round(cmMatrix$byClass[1], 2))  )+
   theme(plot.caption = element_text(color = "black",
                                     size = 18,
                                     hjust = 0,
                                     face = "bold"))+
-  theme(legend.position = "none")
+  theme(legend.position = "None")
 
-
+pred_plot
 #ROC
 
 pred_roc <- (predict(glm_fit, train_df, type = 'response') > 0.5) * 1
-df_roc <- data.frame('Survived' = train_df$Survived, 'predict' =  pred_roc)
-precrec_obj <- evalmod(scores = df_roc$predict, labels = df_roc$Survived)
+df_roc <- data.frame('class' = train_df$class, 'predict' =  pred_roc)
+precrec_obj <- evalmod(scores = df_roc$predict, labels = df_roc$class)
 
 p <-  autoplot(precrec_obj, "ROC")
 

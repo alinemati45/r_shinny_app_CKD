@@ -7,6 +7,8 @@
 #    http://shiny.rstudio.com/
 #
 
+work_dir <- "C:/Users/nemat/OneDrive - mcw.edu/UWM/Spring/PH 718 R/HW/CKD-App-main"
+setwd(work_dir)
 library(shiny)
 library(waiter)
 library(bslib)
@@ -30,11 +32,11 @@ shinyUI(fixedPage(
     #titlePanel("Old Faithful Geyser Data"),
     
     # Sidebar with a slider input for number of bins 
-    navbarPage("Who survived the Titanic?", collapsible = TRUE,
+    navbarPage("High Blood Pressure can affect CKD?", collapsible = TRUE,
                tabPanel("00 Start", icon = icon("play"),
                         fixedRow(
                             column(width = 6,
-                                   includeMarkdown("txt/start.md"),
+                                   includeMarkdown("./txt/start.md"),
                                    div(style="display: inline-block; width: 150px;",
                                        actionButton("code", "Source Code", 
                                                     onclick ="window.open('https://github.com/alinemati45/r_shinny_app_CKD_potassium', '_blank')", 
@@ -46,18 +48,19 @@ shinyUI(fixedPage(
                             ),
                             column(width = 6,
                                    tabsetPanel(type = "tabs", 
-                                               tabPanel("Survival",
-                                                        h4("Survival of the Titanic:"),  
-                                                        plotOutput("survivedplot")),
-                                               tabPanel("Sex", 
-                                                        h4("Survival by Sex:"),
-                                                        plotOutput("sexplot1")),
-                                               tabPanel("Class",  
-                                                        h4("Survival by Class:"),
+                                               tabPanel("Class",
+                                                        h4("Class of the Chronic Kidney Disease :"),  
                                                         plotOutput("classplot")),
-                                               tabPanel("Age",  
-                                                        h4("Survival by Age:"),
+                                               tabPanel("Pus Cell", 
+                                                        h4("Chronic Kidney Disease Class by Pus Cell:"),
+                                                        plotOutput("Pus_Cellplot1")),
+                                               tabPanel("Blood Pressure",  
+                                                        h4("Blood Pressure by the Chronic Kidney Disease:"),
+                                                        plotOutput("blood_pressure")),
+                                               tabPanel("Age ",  
+                                                        h4("Chronic Kidney Disease by Age:"),
                                                         plotOutput("ageplot"))
+                                               
                                    )
                             )
                         )
@@ -65,7 +68,7 @@ shinyUI(fixedPage(
                tabPanel("01 Idea", icon = icon("lightbulb"),
                         fixedRow(
                             column(width = 6,
-                                   includeMarkdown("txt/idea.md"),
+                                   includeMarkdown("./txt/idea.md"),
                                    h4("Insert the logit in the scatterplot:"),
                                    checkboxInput("boolmethod", "Logit!", 
                                                  value = FALSE)
@@ -81,7 +84,7 @@ shinyUI(fixedPage(
                tabPanel("02 Variables", icon = icon("chart-pie"),
                         fixedRow(
                             column(width = 6,
-                                   includeMarkdown("txt/variables.md")
+                                   includeMarkdown("./txt/variables.md")
                             ),
                             column(width = 6,
                                    HTML(paste(h4("Add a variable:"))),
@@ -96,15 +99,15 @@ shinyUI(fixedPage(
                tabPanel("03 Model", icon = icon("robot"),
                         fixedRow(
                             column(width = 5,
-                                   includeMarkdown("txt/model.md")
+                                   includeMarkdown("./txt/model.md")
                             ),
                             column(width = 7,
                                    h4("Logistic regression results:"),
                                    p("Pick the independent variables:"),
                                    div(style="display: inline-block; width: 100px;",
-                                       checkboxInput("bool1", "Sex", value = FALSE)),
+                                       checkboxInput("bool1", "Pus Cell", value = FALSE)),
                                    div(style="display: inline-block; width: 100px;",
-                                       checkboxInput("bool2", "Class", value = FALSE)),
+                                       checkboxInput("bool2", "Blood Pressure", value = FALSE)),
                                    div(style="display: inline-block; width: 100px;",
                                        checkboxInput("bool3", "Age", value = FALSE)),
                                    verbatimTextOutput("model")
@@ -114,13 +117,15 @@ shinyUI(fixedPage(
                tabPanel("04 Odds Ratio", icon = icon("otter"),
                         fixedRow(
                             column(width = 6,
-                                   includeMarkdown("txt/odds.md"),
+                                   includeMarkdown("./txt/odds.md"),
                             ),
                             column(width = 6,
                                    tabsetPanel(type = "tabs",
-                                               tabPanel("Barplot", plotOutput("sexplot2")),
+                                               tabPanel("Barplot", plotOutput("Pus_Cellplot2")),
                                                tabPanel("Calculator", verbatimTextOutput("odds"),
-                                                        verbatimTextOutput("orperHand"))
+                                                        verbatimTextOutput("orperHand")
+                                                        
+                                                        )
                                    ),
                                    HTML(paste(h4("All the OR from the model you picked in the last pane:"))),
                                    plotOutput("modelor")
@@ -129,20 +134,21 @@ shinyUI(fixedPage(
                ),
                tabPanel("05 Prediction", icon = icon("magic"),
                         fixedRow(
-                            includeMarkdown("txt/prediction.md"),
+                            includeMarkdown("./txt/prediction.md"),
                             column(width = 5,
-                                   radioButtons("psex", h4("Sex"),
-                                                choices = list("Male" = "male", "Female" = "female"), 
-                                                selected = "female"),
+                                   radioButtons("psex", 
+                                                h4("Pus_Cell"),
+                                                choices = list("Normal" = "normal", "Abnormal" = "abnormal"), 
+                                                selected = "normal"),
                                    sliderInput("Age", 
                                                h4("Age"),
                                                min = 1,
                                                max = 100,
                                                value = 50),
-                                   sliderInput("pclass", 
-                                               h4("Class"),
+                                   sliderInput("pbp", 
+                                               h4("blood_pressure"),
                                                min = 1,
-                                               max = 3,
+                                               max = 4,
                                                value = 2),
                                    div(style="display: inline-block; width: 300px;")
                             ),
@@ -155,7 +161,7 @@ shinyUI(fixedPage(
                tabPanel("06 Performance", icon = icon("hat-wizard"),
                         fixedRow(
                             column(width = 6,
-                                   includeMarkdown("txt/performance.md"),
+                                   includeMarkdown("./txt/performance.md"),
                             ),
                             column(width = 6,
                                    h4("Classification:"),
