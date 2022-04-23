@@ -43,7 +43,7 @@ glm_fit <- glm(class ~ Pus_Cell + Age + blood_pressure , family = binomial(link 
 
 
 #Titanic data prep for alluvial#######
-tita<- read.csv(file = 'data_update.csv')
+tita<- read.csv(file = './data/data.csv')
 
 
 tita<- tita %>% 
