@@ -6,3 +6,4 @@
 - https://rpubs.com/harshaash/KNN_imputation
 - https://rpubs.com/michelledo202/ckd
 - https://scientistcafe.com/ids/missing-values.html
+- https://langtest.jp/shiny/chi/
