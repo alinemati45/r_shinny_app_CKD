@@ -813,7 +813,7 @@ shinyServer(function(input, output) {
     
     
     info4 <- reactive({
-      info0 <-paste("Because the P-value is clearly less than α = 0.05, we reject H0 and conclude that \n high blood pressure and Chronic Kidney disease are associated in the population", ".", sep = "")
+      info0 <-paste("Because the P-value is clearly less than α = 0.05, we reject H0 and conclude that \nhigh blood pressure and Chronic Kidney disease are associated in the population", ".", sep = "")
       #info1 <- paste("This analysis was conducted with ", strsplit(R.version$version.string, " \\(")[[1]][1], ".", sep = "")
       info2 <- paste("It was executed on ", date(), ".", sep = "")
       info3 <- paste("Any Question: Nemati@uwm.edu ", sep = "")

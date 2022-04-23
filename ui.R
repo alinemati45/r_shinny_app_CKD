@@ -81,7 +81,7 @@ z-index: 105;
                    actionButton(
                      "code",
                      "Source Code",
-                     onclick = "window.open('https://github.com/alinemati45/r_shinny_app_CKD_potassium', '_blank')",
+                     onclick = "window.open('https://github.com/alinemati45/r_shinny_app_CKD/', '_blank')",
                      icon = icon("github")
                    )
                  ),
@@ -293,20 +293,28 @@ z-index: 105;
         )
       )
     ),
-    
+    tabPanel(
+      "07 GGPAIRS Plot ",
+      icon = icon("fa-regular fa-broom"),
+      fixedRow( column(width = 12,
+                       
+                       h4("GGPAIRS Plot:"),
+                       plotOutput("gg_p")),
+                column(width = 1,
+                       includeMarkdown(""),)
+                
+      ) 
+    ),
     
     
     
     
     
     tabPanel(
-      "07 Reference and GGPAIRS Plot ",
-      icon = icon("hat-wizard"),
-      fixedRow( column(width = 12,
-                       
-                       h4("GGPAIRS Plot:"),
-                       plotOutput("gg_p")),
-        column(width = 1,
+      "08 Reference ",
+      icon = icon("fa-regular fa-dragon"),
+      fixedRow( column(width = 1,),
+        column(width = 12,
                includeMarkdown("./txt/performance2.md"),)
        
       ) 

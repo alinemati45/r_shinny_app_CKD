@@ -17,7 +17,7 @@ We use Pus Cell, Age, and Blood Pressure to estimate the effect on the Chrinic K
 
 <center>
 
-<img src="https://github.com/alinemati45/r_shinny_app_CKD_potassium/blob/main/man/images/LogitApp.png?raw=true" width="100%"/>
+<img src="https://github.com/alinemati45/r_shinny_app_CKD/blob/main/man/images/kidney-problems-cause-high-blood-pressure.jpg?raw=true" width="100%"/>
 
 </center>
 

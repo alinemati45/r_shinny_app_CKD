@@ -5,9 +5,9 @@ account: alinemati
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6146363
-bundleId: 5829099
+bundleId: 5829900
 url: https://alinemati.shinyapps.io/CKD-App-main/
-when: 1650704149.08018
-lastSyncTime: 1650704149.08018
+when: 1650732839.7653
+lastSyncTime: 1650732839.7653
 asMultiple: FALSE
 asStatic: FALSE
