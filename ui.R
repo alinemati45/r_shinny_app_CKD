@@ -128,14 +128,15 @@ z-index: 105;
              
              h2("Test of Independence (Tabulated data)"),
              
-             h3("H0: There is no association of one unit increase in blood pressure with chronic kidney disease risk. "),
-             h3("H1: There is no association of one unit increase in blood pressure with chronic kidney disease risk. "),
+            # h5("H0: There is no association of one unit increase in blood pressure with chronic kidney disease risk. "),
+            # h5("H1: There is no association of one unit increase in blood pressure with chronic kidney disease risk. "),
+             p(HTML("<b><div style='background-color:#FADDF2;border:1px solid black;'>H0: There is no association of one unit increase in blood pressure with chronic kidney disease risk.</div></b>")),
+             p(HTML("<b><div style='background-color:#FADDF2;border:1px solid black;'>H1: There is association of one unit increase in blood pressure with chronic kidney disease risk.</div></b>")),
              
              h4("Two or more than two nominal variables"),
              
-             p('Note: Input values must be separated by tabs. Copy and paste from Excel/Numbers.'),
+             p('Note: Input values must be separated by tabs. Copy and paste from Excel/Numbers.\nYour data needs to have the header (variable names) in the first row. Missing values should be indicated by a period'),
              
-             p(HTML("<b><div style='background-color:#FADDF2;border:1px solid black;'>Your data needs to have the header (variable names) in the first row. Missing values should be indicated by a period (.) or NA.</div></b>")),
              
              aceEditor("text4", value="\tLow\tMid\tHigh\nCKD\t98\t52\t81\nNotCKD\t91\t66\t12", mode="r", theme="cobalt"),
              #aceEditor("text4", value="\tNo\tYes\nM\t20\t18\nW\t8\t24", mode="r", theme="cobalt"),
@@ -266,7 +267,7 @@ z-index: 105;
             "pbp",
             h4("blood_pressure"),
             min = 1,
-            max = 4,
+            max = 3,
             value = 2
           ),
           div(style = "display: inline-block; width: 300px;")
@@ -296,7 +297,7 @@ z-index: 105;
     tabPanel(
       "07 GGPAIRS Plot ",
       icon = icon("fa-regular fa-broom"),
-      fixedRow( column(width = 12,
+      fixedRow( column(width = 12, 
                        
                        h4("GGPAIRS Plot:"),
                        plotOutput("gg_p")),

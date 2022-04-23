@@ -29,18 +29,16 @@ source("app.R" ,local=T)
 
 library(tidyverse)
 #Data Prep#############
-#train_df<- titanic::titanic_train
-train_df <- read.csv(file = './data_update.csv')
-typeof(train_df)
+train_df <- read.csv(file = './data/data.csv')
 
 
 train_df$class <- factor(train_df$class, 
                             levels = c(0, 1),
-                            labels = c("notckd", "ckd")) 
+                            labels = c("Notckd", "Ckd")) 
 
 train_df$blood_pressure <- factor(train_df$blood_pressure, 
                           levels = c(1, 2 , 3 ),
-                          labels = c("80 or down", "90" , "100 or above")) 
+                          labels = c("Low", "Mid" , "Heigh")) 
 train_df$Age <- as.double(train_df$Age) 
 typeof(train_df$Age)
 max(train_df$Age)
@@ -53,7 +51,7 @@ glm_fit <- glm(class ~ Pus_Cell + Age + blood_pressure , family = binomial(link 
 
 df <- expand.grid(Pus_Cell = c("normal"), 
                   Age = c(44),
-                  blood_pressure = 3)
+                  blood_pressure = 2)
 
 
 

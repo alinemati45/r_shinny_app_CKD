@@ -19,19 +19,18 @@ library(markdown)
 #https://alinemati.shinyapps.io/CKD-App-main
 #Data Prep#############
 
-train_df <- read.csv(file = './data_update.csv')
-#train_df <- read.csv(file = 'data_update.csv')
+train_df <- read.csv(file = './data/data.csv')
 
 
 train_df$class <- factor(train_df$class, 
                             levels = c(0, 1),
-                            labels = c("notckd", "ckd")) 
+                            labels = c("Notckd", "Ckd")) 
 
 
 
 train_df$blood_pressure <- factor(train_df$blood_pressure, 
                                   levels = c(1, 2 , 3 ),
-                                  labels = c("80 or down", "90" , "100 or above")) 
+                                  labels = c("Low", "Mid" , "High")) 
 train_df$Age <- as.double(train_df$Age) 
 typeof(train_df$Age)
 
@@ -66,11 +65,11 @@ tita<- tita %>%
 
 tita$class <- factor(tita$class, 
                         levels = c(0, 1),
-                        labels = c("notckd", "ckd")) 
+                        labels = c("Notckd", "Ckd")) 
 
 tita$blood_pressure <- factor(tita$blood_pressure, 
-                      levels = c(1, 2 , 3 , 4),
-                      labels = c("1. Class", "2. Class", "3. class" , "4. class"))
+                      levels = c(1, 2 , 3 ),
+                      labels = c("Low", "Mid", "High" ))
 
 
 #plots
@@ -277,13 +276,13 @@ df_pred <- data.frame('index' = train_df$index, 'True' =  train_df$class,
 
 df_pred$Predicted <- factor(df_pred$Predicted, 
                             levels = c(0, 1),
-                            labels = c("notckd", "ckd")) 
+                            labels = c("Notckd", "Ckd")) 
 
 
 levels(df_pred$True)
 levels(df_pred$Predicted)
 
-cmMatrix<- confusionMatrix(df_pred$Predicted, df_pred$True,  positive = "ckd")
+cmMatrix<- confusionMatrix(df_pred$Predicted, df_pred$True,  positive = "Ckd")
 
 
 label_df <- df_pred %>% 
@@ -344,6 +343,7 @@ roc_curve <-  p+
   geom_abline(size = 0.8, linetype = "dashed", color="darkgray")+
   theme(legend.position = "none")+
   ggtitle("")
+library(devtools)
 
 library(GGally)
 gg_p<-ggpairs(train_df,  title="correlogram with ggpairs()"  )
