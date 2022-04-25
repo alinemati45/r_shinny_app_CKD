@@ -308,8 +308,11 @@ z-index: 105;
     ),
     
     
-    
-    
+    tabPanel("PDF file", 
+             tags$iframe(style="height:800px; 
+                                             width:200%; 
+                                             scrolling=no", 
+                         src="https://your-path/your-file.pdf")),
     
     tabPanel(
       "08 Reference ",

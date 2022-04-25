@@ -10,8 +10,7 @@
 
 </left>
 
-This app illustrates some fundamental concepts in logistic regression. We use Pus Cell, Age, and Blood Pressure to estimate the effect on the Chrinic Kidney diease database.
-
+This app illustrates some fundamental concepts in logistic regression. We use Pus Cell, Age, and Blood Pressure to estimate the effect on the Chronic Kidney disease database.
 1- Age
 
 2- Blood Pressure:

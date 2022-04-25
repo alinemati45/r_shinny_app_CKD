@@ -343,7 +343,10 @@ roc_curve <-  p+
   geom_abline(size = 0.8, linetype = "dashed", color="darkgray")+
   theme(legend.position = "none")+
   ggtitle("")
-library(devtools)
+#library(devtools)
+
+train_df_gfg = subset(train_df, select = -c(index) )
+
 
 library(GGally)
-gg_p<-ggpairs(train_df,  title="correlogram with ggpairs()"  )
+gg_p<-ggpairs(train_df_gfg,  title="correlogram with ggpairs()"  )
