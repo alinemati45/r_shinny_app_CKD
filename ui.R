@@ -307,12 +307,16 @@ z-index: 105;
       ) 
     ),
     
-    
-    tabPanel("PDF file", 
-             tags$iframe(style="height:800px; 
-                                             width:200%; 
-                                             scrolling=no", 
-                         src="https://your-path/your-file.pdf")),
+    # 
+    # tabPanel("PDF file", 
+    #          sidebarPanel(
+    #            actionButton("generate", "Generate PDF")
+    #          ),
+    #          
+    #          mainPanel(
+    #            uiOutput("pdfview")
+    #          ))
+    #         ,
     
     tabPanel(
       "08 Reference ",

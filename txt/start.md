@@ -11,6 +11,9 @@
 </left>
 
 This app illustrates some fundamental concepts in logistic regression. We use Pus Cell, Age, and Blood Pressure to estimate the effect on the Chronic Kidney disease database.
+
+## Variables:
+
 1- Age
 
 2- Blood Pressure:
@@ -23,7 +26,9 @@ This app illustrates some fundamental concepts in logistic regression. We use Pu
 
 3- Pus Cell: It consists of a buildup of dead, white blood cells that form when the body's immune system responds to the infection
 
+
 4- Class: CKD =1, NotCKD=0 
+
 <center>
 
 <img src="https://github.com/alinemati45/r_shinny_app_CKD/blob/main/man/images/kidney-problems-cause-high-blood-pressure.jpg?raw=true" width="75%"/>
