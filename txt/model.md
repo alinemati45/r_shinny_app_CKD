@@ -1,9 +1,11 @@
 #### The Model:
 
-Let's run a logistic regression. Which of the following independent variables do you want to include to estimate the effect on Class? <br/>
+Let us begin by doing a logistic regression. <br/>
 
-Let's pick Pus Cell and display the result?
+Which of the following independent variables should you add in order to obtain an estimate of the influence of Class? <br/>
 
+
+How about we choose Pus Cell and present the result?
 
 
 

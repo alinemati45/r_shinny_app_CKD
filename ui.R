@@ -71,7 +71,7 @@ z-index: 105;
   navbarPage(
     "High Blood Pressure can affect CKD?",
     collapsible = TRUE,
-    tabPanel("00 Start", icon = icon("play"),
+    tabPanel("1. Start", icon = icon("play"),
              fixedRow(
                column(
                  width = 6,
@@ -124,7 +124,19 @@ z-index: 105;
                ) , 
              )) ,
     
-    tabPanel("01. Test of Independence (Tabulated data)",
+    tabPanel(
+      "2. GGPAIRS Plot ",
+      icon = icon("fa-regular fa-broom"),
+      fixedRow( column(width = 12, 
+                       
+                       h4("GGPAIRS Plot:"),
+                       plotOutput("gg_p")),
+                column(width = 1,
+                       includeMarkdown(""),)
+                
+      ) 
+    ),
+    tabPanel("3. Test of Independence (Tabulated data)",
              
              h2("Test of Independence (Tabulated data)"),
              
@@ -167,7 +179,7 @@ z-index: 105;
              strong('Our Result is : '),
              strong(verbatimTextOutput("info4.out"))
     ), 
-    tabPanel("02 Idea", icon = icon("lightbulb"),
+    tabPanel("4. Idea", icon = icon("lightbulb"),
              fixedRow(
                column(
                  width = 6,
@@ -183,7 +195,7 @@ z-index: 105;
                         tabPanel("Function", plotOutput("funcplot"))
                       ))
              ) ),
-    tabPanel("03 Variables", icon = icon("chart-pie"),
+    tabPanel("5. Variables", icon = icon("chart-pie"),
              fixedRow(
                column(width = 6,
                       includeMarkdown("./txt/variables.md")),
@@ -204,7 +216,7 @@ z-index: 105;
                # verbatimTextOutput("info4.out")
                # 
                )),
-    tabPanel("04 Model", icon = icon("robot"),
+    tabPanel("6. Model", icon = icon("robot"),
              fixedRow(
                column(width = 5,
                       includeMarkdown("./txt/model.md")),
@@ -220,8 +232,58 @@ z-index: 105;
                      checkboxInput("bool3", "Age", value = FALSE)),
                  verbatimTextOutput("model")
                )
-             )),
-    tabPanel("05 Odds Ratio", icon = icon("otter"),
+             )), tabPanel(
+               "05 Prediction",
+               icon = icon("magic"),
+               fixedRow(
+                 includeMarkdown("./txt/prediction.md"),
+                 column(
+                   width = 5,
+                   radioButtons(
+                     "psex",
+                     h4("Pus_Cell"),
+                     choices = list("Normal" = "normal", "Abnormal" = "abnormal"),
+                     selected = "normal"
+                   ),
+                   sliderInput(
+                     "Age",
+                     h4("Age"),
+                     min = 1,
+                     max = 100,
+                     value = 50
+                   ),
+                   sliderInput(
+                     "pbp",
+                     h4("blood_pressure"),
+                     min = 1,
+                     max = 3,
+                     value = 2
+                   ),
+                   div(style = "display: inline-block; width: 300px;")
+                 ),
+                 column(
+                   width = 7,
+                   h4("The prediction result:"),
+                   plotOutput("predictionplot")
+                 )
+               )
+             ),
+    tabPanel(
+      "7. Performance",
+      icon = icon("hat-wizard"),
+      fixedRow(
+        column(width = 6,
+               includeMarkdown("./txt/performance.md"),),
+        column(
+          width = 6,
+          h4("Classification:"),
+          plotOutput("performanceplot"),
+          h4("ROC Plot:"),
+          plotOutput("ROC")
+        )
+      )
+    ),
+    tabPanel("8. Odds Ratio", icon = icon("otter"),
              fixedRow(
                column(width = 6,
                       includeMarkdown("./txt/odds.md"),),
@@ -243,69 +305,7 @@ z-index: 105;
                  plotOutput("modelor")
                )
              )),
-    tabPanel(
-      "06 Prediction",
-      icon = icon("magic"),
-      fixedRow(
-        includeMarkdown("./txt/prediction.md"),
-        column(
-          width = 5,
-          radioButtons(
-            "psex",
-            h4("Pus_Cell"),
-            choices = list("Normal" = "normal", "Abnormal" = "abnormal"),
-            selected = "normal"
-          ),
-          sliderInput(
-            "Age",
-            h4("Age"),
-            min = 1,
-            max = 100,
-            value = 50
-          ),
-          sliderInput(
-            "pbp",
-            h4("blood_pressure"),
-            min = 1,
-            max = 3,
-            value = 2
-          ),
-          div(style = "display: inline-block; width: 300px;")
-        ),
-        column(
-          width = 7,
-          h4("The prediction result:"),
-          plotOutput("predictionplot")
-        )
-      )
-    ),
-    tabPanel(
-      "07 Performance",
-      icon = icon("hat-wizard"),
-      fixedRow(
-        column(width = 6,
-               includeMarkdown("./txt/performance.md"),),
-        column(
-          width = 6,
-          h4("Classification:"),
-          plotOutput("performanceplot"),
-          h4("ROC Plot:"),
-          plotOutput("ROC")
-        )
-      )
-    ),
-    tabPanel(
-      "07 GGPAIRS Plot ",
-      icon = icon("fa-regular fa-broom"),
-      fixedRow( column(width = 12, 
-                       
-                       h4("GGPAIRS Plot:"),
-                       plotOutput("gg_p")),
-                column(width = 1,
-                       includeMarkdown(""),)
-                
-      ) 
-    ),
+   
     
     # 
     # tabPanel("PDF file", 
@@ -319,7 +319,7 @@ z-index: 105;
     #         ,
     
     tabPanel(
-      "08 Reference ",
+      "9 Reference ",
       icon = icon("fa-regular fa-dragon"),
       fixedRow( column(width = 1,),
         column(width = 12,
