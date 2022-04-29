@@ -33,7 +33,7 @@ A confusion matrix is a table that is used to define the performance of a classi
 <center>
 <img src="man/images/conf.png" alt="Condition Matrix" width="75%"/>
 </center>
-### ## Confusion matrix result
+### Confusion matrix result
 
 How well does the model perform?
 You are probably aware that R2 is frequently used to evaluate the performance of a linear model. Regrettably, evaluating the performance of a logistic regression is more difficult. There are faux R2 values for logistic regression that can be used to compare nested models, but they cannot be interpreted as explained variance in the same way that they are for linear regression. Rather than that, you might come across two terms: sensitivity and specificity.
