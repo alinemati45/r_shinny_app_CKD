@@ -22,7 +22,7 @@ This is the repository for a R shiny app that introduces the basics of the main 
 
 ## GGPAIRS Plot : 
 <center>
-<img src="man/images/demo2.png" alt="Logistic regression app" width="75%"/>
+<img src="man/images/demo2.png" alt="Logistic regression app" width="35%"/>
 </center>
 
 ## Confustion Matric 
