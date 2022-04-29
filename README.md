@@ -35,3 +35,10 @@ This is the repository for a R shiny app that introduces the basics of the main 
 <center>
 <img src="man/images/Demo4.png" alt="Logistic regression app" width="75%"/>
 </center>
+
+
+## confition matrix
+<center>
+<img src="man/images/conf.png" alt="Condition Matrix" width="75%"/>
+</center>
+
