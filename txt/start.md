@@ -35,10 +35,14 @@ This app illustrates some fundamental concepts in logistic regression. We use Pu
 
 </center>
 
-Hypertension is both a cause and result of chronic kidney disease (CKD) and affects the great majority of people with the disease.
-Controlling hypertension is critical in patients with CKD because it results in a slower course of the disease and a decreased risk of CVD.
-How many people have Chrinic Kidney diease? Who have a higher change to get Chrinic Kidney diease? what about Pus Cell & Age?
-On the left side you can see simple bar chart to get a first impression.
+High blood pressure is both a cause and result of chronic kidney disease (CKD) and affects the great majority of people with the disease. 
+
+Controlling hypertension is critical in patients with CKD because it results in a slower course of the disease and a decreased risk of Cardiovascular disease. 
+
+How many people have CKD? 
+
+Who has a higher chance to get Chronic Kidney disease? what about Pus Cell & Age? On the left side, you can see a simple bar chart to get a first impression.
+
 
 
 Additionally, you can download the content or view the Shiny App's source code.

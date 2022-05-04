@@ -15,7 +15,6 @@ library(precrec)
 
 library(markdown)
 
-
 #https://alinemati.shinyapps.io/CKD-App-main
 #Data Prep#############
 
@@ -350,3 +349,8 @@ train_df_gfg = subset(train_df, select = -c(index) )
 
 library(GGally)
 gg_p<-ggpairs(train_df_gfg,  title="correlogram with ggpairs()"  )
+
+
+
+
+
