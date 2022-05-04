@@ -96,7 +96,7 @@ Both distributions are frequently employed in the social sciences to model binar
 
 The scatter plot was generated using simulated data, which is why it appears beautiful and smooth, but I hope you get a sense of the difference between linear and logistic regression.
 <center>
-<img src="man/images/Demo4.png" alt="Logistic regression app" width="75%"/>
+<img src="man/images/Demo4.png" alt="Logistic regression app" width="45%"/>
 </center>
 
 
