@@ -1,5 +1,5 @@
 ---
-title: "Final Project"
+title: "Final Project Summary"
 author: "Ali Nemati"
 date: "Last compiled on `r format(Sys.time(), '%d %B, %Y , %H:%M:%S')`"
 output:
@@ -82,6 +82,7 @@ H0: There is no association of one unit increase in blood pressure with chronic 
 
 H1: There is association of one unit increase in blood pressure with chronic kidney disease risk.
 
+![](./report/demo5.jpg)
 
 ![](./report/4.png)
 Our Result is :
