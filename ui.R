@@ -134,9 +134,29 @@ z-index: 105;
                      ) )
                  ) ,
                )) ,
-      
+      tabPanel("2. Variables", icon = icon("chart-pie"),
+               fixedRow(
+                 column(width = 6,
+                        includeMarkdown("./txt/variables.md")),
+                 column(
+                   width = 6,
+                   HTML(paste(h4("Add a variable:"))),
+                   div(style = "display: inline-block; width: 150px;",
+                       checkboxInput("booladults", "Age", value = FALSE)),
+                   div(style = "display: inline-block; width: 150px;",
+                       checkboxInput("boolclass", "Class", value = FALSE)),
+                   plotOutput("alluvialplot")
+                 )
+                 # ,
+                 # br(),
+                 # br(),
+                 #
+                 # strong('R session info'),
+                 # verbatimTextOutput("info4.out")
+                 #
+               )),
       tabPanel(
-        "2. GGPAIRS Plot ",
+        "3. GGPAIRS Plot ",
         icon = icon("fa-regular fa-broom"),
         
         fixedRow(
@@ -210,7 +230,7 @@ z-index: 105;
         strong(verbatimTextOutput("info4.out"))
       
       ),
-      tabPanel("4. Idea", icon = icon("lightbulb"),
+      tabPanel("5. Idea", icon = icon("lightbulb"),
                fixedRow(
                  column(
                    width = 6,
@@ -226,27 +246,7 @@ z-index: 105;
                           tabPanel("Function", plotOutput("funcplot"))
                         ))
                )),
-      tabPanel("5. Variables", icon = icon("chart-pie"),
-               fixedRow(
-                 column(width = 6,
-                        includeMarkdown("./txt/variables.md")),
-                 column(
-                   width = 6,
-                   HTML(paste(h4("Add a variable:"))),
-                   div(style = "display: inline-block; width: 150px;",
-                       checkboxInput("booladults", "Age", value = FALSE)),
-                   div(style = "display: inline-block; width: 150px;",
-                       checkboxInput("boolclass", "Class", value = FALSE)),
-                   plotOutput("alluvialplot")
-                 )
-                 # ,
-                 # br(),
-                 # br(),
-                 #
-                 # strong('R session info'),
-                 # verbatimTextOutput("info4.out")
-                 #
-               )),
+     
       tabPanel("6. Model", icon = icon("robot"),
                fixedRow(
                  column(width = 5,
@@ -339,19 +339,20 @@ z-index: 105;
                )),
       
       
-      #
-      # tabPanel("PDF file",
-      #          sidebarPanel(
-      #            actionButton("generate", "Generate PDF")
-      #          ),
-      #
-      #          mainPanel(
-      #            uiOutput("pdfview")
-      #          ))
-      #         ,
-      
       tabPanel(
-        "10. Reference ",
+        "10. Limitation ",
+        icon = icon("fa-solid fa-database"),
+        fixedRow(column(width = 1, ),
+                 column(
+                   width = 12,
+                   includeMarkdown("./txt/limitation.md"),
+                 ))
+      ),
+
+   
+
+      tabPanel(
+        "11. Reference ",
         icon = icon("fa-regular fa-dragon"),
         fixedRow(column(width = 1, ),
                  column(
@@ -362,7 +363,7 @@ z-index: 105;
       
       ## REPORT
       tabPanel(
-        "11. Download reports ",
+        "12. Download reports ",
         icon = icon("fa-thin fa-download"),
         "You may downlaod report here as HTML:",
         br(),
@@ -409,7 +410,7 @@ z-index: 105;
       ##  Principal Component Analysis For FUTURE WORK
       
       tabPanel(
-        "12. Principal Component Analysis For FUTURE WORK ",
+        "13. Principal Component Analysis For FUTURE WORK ",
         icon = icon("fa-regular fa-broom"),
         headerPanel("Principal Component Analysis"),
         
@@ -510,7 +511,7 @@ z-index: 105;
         
       ),
       tabPanel(
-        "13. Contact ",
+        "15. Contact ",
         icon = icon("fa-thin fa-file-signature"),
         
         fixedRow(column(width = 1, ),
