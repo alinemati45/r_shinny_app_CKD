@@ -81,7 +81,8 @@ z-index: 105;
     
     # Sidebar with a slider input for number of bins
     navbarPage(
-      "High Blood Pressure can affect CKD?",
+      "High Blood Pressure can affect CKD?"     ,
+      # ,
       collapsible = TRUE,
       tabPanel("1. Start", icon = icon("play"),
                fixedRow(
@@ -107,6 +108,7 @@ z-index: 105;
                        icon = icon("file")
                      )
                    )
+                   
                  ),
                  column(
                    width = 6,
@@ -133,7 +135,8 @@ z-index: 105;
                        plotOutput("ageplot")
                      ) )
                  ) ,
-               )) ,
+               )
+               ) ,
       tabPanel("2. Variables", icon = icon("chart-pie"),
                fixedRow(
                  column(width = 6,

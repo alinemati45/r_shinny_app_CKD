@@ -2,11 +2,19 @@
 <left>
 
 <img src="https://urbanmilwaukee.com/wp-content/uploads/2020/03/UWM-logo.jpg" width="25%"/>
+
  <br>
-- Instructor: DR. Kourosh Ravvaz
-- By : Ali Nemati
-- UWM
-- Spring 2022
+**- Instructor: DR. Kourosh Ravvaz**
+<br>
+**- By : Ali Nemati**
+<br>
+**- University of Wisconsin-Milwaukee**
+<br>
+**- Spring 2022**
+
+- App version: 1.12
+
+- Last Update: 05/05/2022
 
 </left>
 
