@@ -12,9 +12,9 @@
 <br>
 **- Spring 2022**
 
-- App version: 1.12
+- App version: 1.13
 
-- Last Update: 05/05/2022
+- Last Update: 05/06/2022
 
 </left>
 
