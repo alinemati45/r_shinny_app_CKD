@@ -1,6 +1,10 @@
 #### Project limitation:
 
+<center>
 
+<img src="https://raw.githubusercontent.com/alinemati45/r_shinny_app_CKD/main/man/images/limitation.jpg?raw=true" width="75%"/>
+
+</center>
 **1. Missing value.**
 
 Missing data (or missing values) is defined as the data value that is not stored for a variable in the observation of interest.
@@ -16,3 +20,7 @@ While any of a variety of alternative models may be used to forecast missing val
 **2. Having Small Data**
 
 A small sample size also affects the reliability of the result because it leads to a higher variability, which may lead to bias.
+
+
+
+

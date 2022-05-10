@@ -12,28 +12,30 @@
 <br>
 **- Spring 2022**
 
-- App version: 1.13
-
-- Last Update: 05/06/2022
+- App version: 1.14
+- Last Update: 05/10/2022, 2:12 pm
 
 </left>
+One of the most frequent chronic health disorders in people is hypertension. According to the National
+Center for Health Statistics, hypertension affects 49.6% of adults in the United States aged 20 and over.
+
+Blood Pressure is a cause and result of chronic kidney disease (CKD) and affects the great majority of people
+with the disease. Controlling hypertension is critical in patients with CKD because it results in a slower
+course of the disease and a decreased risk of CVD. 
 
 This app illustrates some fundamental concepts in logistic regression. We use Pus Cell, Age, and Blood Pressure to estimate the effect on the Chronic Kidney disease database.
 
+<div style="text-align:center">![](./report/6.png )
+
 ## Variables:
 
-1- Age
-
+1- Age <br>
 2- Blood Pressure:
-
 - Blood Pressure: Low  : 80 or less
-
 - Blood Pressure: Mid  : 80- 120
-
 - Blood Pressure: High : 120 or Above
 
-3- Pus Cell: It consists of a buildup of dead, white blood cells that form when the body's immune system responds to the infection
-
+3- Pus Cell: It consists of a buildup of dead, white blood cells that form when the body's immune system responds to the infection.
 
 4- Class: CKD =1, NotCKD=0 
 
